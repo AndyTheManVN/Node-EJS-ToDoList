@@ -3,7 +3,12 @@ const bodyParser = require('body-parser');
 const port = (3000);
 
 const app = express();
+var item = '';
 
+// Dung bodyParser lay du lieu tu form vao body
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// Set template engine cho express bang embeded javascript ejs
 app.set('view engine', 'ejs');
 
 app.listen(port, function() {
@@ -13,35 +18,23 @@ app.listen(port, function() {
 app.get('/', function(req, res){
     
   var today = new Date();
-  var currentDay = today.getDay();
-  var day = "";
+  var option = {
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long'
+  };
 
-  switch (currentDay) {
-    case 0:
-      day = "Sunday";
-      break;
-    case 1:
-      day = "Monday";
-      break;
-    case 2:
-      day = "Tuesday";
-      break;
-    case 3:
-      day = "Wednesday";
-      break;
-    case 4:
-      day = "Thursday";
-      break;
-    case 5:
-      day = "Friday";
-      break;
-    case 6:
-      day = "Saturday";
-      break;
-    default:
-      console.log("Error: current day is equal to " + currentDay);
-  }
+  var day = today.toLocaleDateString('en-US', option);
 
-  res.render("list", {day: day});   
+  res.render("list", {
+    day: day,
+    listItem: item
+  });   
 });
+
+app.post('/', function(req, res){
+  item = req.body.newItem;
+  res.redirect('/');
+});
+
 
