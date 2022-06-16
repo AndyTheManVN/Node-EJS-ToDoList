@@ -3,10 +3,11 @@ const bodyParser = require('body-parser');
 const port = (3000);
 
 const app = express();
-var items = [];
+var items = ["Burger","Chicken", "Pizza", "Pasta"];
 
 // Dung bodyParser lay du lieu tu form vao body
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static('public'));
 
 // Set template engine cho express bang embeded javascript ejs
 app.set('view engine', 'ejs');

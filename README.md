@@ -11,4 +11,11 @@
 3. Cú pháp của EJS trong html:
   - **<%** not html tag **%>**: thoát câu lệnh html
   - **<%=** variable **%>**: xuất giá trị biến ra html
+4. Concept of scope:
+  - Local and Global variable
+5. Serve Static Files:
+  - Tạo folder Public trong project
+  - Tạo folder con CSS, images,... để serve static files
+  - Khai báo public folder trong app.js: 
+    ```app.use(express.static('public'));``` 
 
