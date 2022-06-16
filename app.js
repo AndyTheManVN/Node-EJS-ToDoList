@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const port = (3000);
 
 const app = express();
-var item = '';
+var items = [];
 
 // Dung bodyParser lay du lieu tu form vao body
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -28,12 +28,13 @@ app.get('/', function(req, res){
 
   res.render("list", {
     day: day,
-    listItem: item
+    listItem: items
   });   
 });
 
 app.post('/', function(req, res){
-  item = req.body.newItem;
+  var item = req.body.newItem;
+  items.push(item);
   res.redirect('/');
 });
 

@@ -1,4 +1,4 @@
-<h1><strong>EJS : Embedded JavaScript</strong><h1>
+<h1>EJS : Embedded JavaScript<h1>
 
 1. EJS:
   - Using EJS with Expres: https://github.com/mde/ejs/wiki/Using-EJS-with-Express
