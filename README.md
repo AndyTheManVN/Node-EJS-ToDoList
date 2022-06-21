@@ -18,4 +18,6 @@
   - Tạo folder con CSS, images,... để serve static files
   - Khai báo public folder trong app.js: 
     ```app.use(express.static('public'));``` 
+6. Template and Layout:
+  - <%- include ->
 

@@ -4,6 +4,7 @@ const port = (3000);
 
 const app = express();
 var items = ["Burger","Chicken", "Pizza", "Pasta"];
+var itemsWork = [];
 
 // Dung bodyParser lay du lieu tu form vao body
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -17,7 +18,7 @@ app.listen(port, function() {
 });
 
 app.get('/', function(req, res){
-    
+  
   var today = new Date();
   var option = {
     weekday: 'long',
@@ -28,15 +29,35 @@ app.get('/', function(req, res){
   var day = today.toLocaleDateString('en-US', option);
 
   res.render("list", {
-    day: day,
+    titles: day,
     listItem: items
   });   
 });
 
 app.post('/', function(req, res){
+  console.log(req.body);
   var item = req.body.newItem;
   items.push(item);
   res.redirect('/');
 });
+
+
+app.get('/work', function(req, res){
+  res.render("list", {titles: "Work List", listItem: itemsWork});
+}
+);
+
+app.post('/work', function(req, res){
+  var item = req.body.newItem;
+  itemsWork.push(item);
+  res.redirect('/work');
+}
+);
+
+
+
+
+
+
 
 
