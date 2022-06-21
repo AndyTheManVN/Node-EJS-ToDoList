@@ -18,7 +18,6 @@ app.listen(port, function() {
 });
 
 app.get('/', function(req, res){
-  
   var today = new Date();
   var option = {
     weekday: 'long',
@@ -35,10 +34,15 @@ app.get('/', function(req, res){
 });
 
 app.post('/', function(req, res){
-  console.log(req.body);
   var item = req.body.newItem;
-  items.push(item);
-  res.redirect('/');
+  if(req.body.list === "Work List"){
+    itemsWork.push(item);
+    res.redirect('/work');
+  }
+  else{
+    items.push(item);
+    res.redirect('/');
+  }
 });
 
 
