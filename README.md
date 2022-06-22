@@ -26,3 +26,5 @@
   - Tạo các function riêng và export
   - Từ các .js muốn sử dụng functions thì call bằng cách khai báo require đến file js
     **const date = require(__dirname + "/date.js");**
+  - Gọi function:
+    **let day = date.getDay();** 
