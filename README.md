@@ -19,5 +19,10 @@
   - Khai báo public folder trong app.js: 
     ```app.use(express.static('public'));``` 
 6. Template and Layout:
+  - File extension: ejs
   - **<%- include("header"); -%>**
-
+  - Tạo các file html riêng và include dùng chung giống Django
+7. Export module:
+  - Tạo các function riêng và export
+  - Từ các .js muốn sử dụng functions thì call bằng cách khai báo require đến file js
+    **const date = require(__dirname + "/date.js");**

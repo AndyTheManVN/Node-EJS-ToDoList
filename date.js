@@ -7,7 +7,13 @@ exports.getDate = function() {
       day: 'numeric',
       month: 'long'
     };
-
-    return today.toLocaleDateString('en-US', option);
-    
+    return today.toLocaleDateString('en-US', option);    
     }
+
+exports.getDay = function() {
+  var today = new Date();
+  var option = {
+    weekday: 'long',
+  };
+  return today.toLocaleDateString('en-US', option);    
+  }
