@@ -3,8 +3,10 @@ const bodyParser = require('body-parser');
 const port = (3000);
 
 const app = express();
-var items = ["Burger","Chicken", "Pizza", "Pasta"];
-var itemsWork = [];
+const items = ["Burger","Chicken", "Pizza", "Pasta"];
+const itemsWork = [];
+
+const date = require(__dirname + "/date.js");
 
 // Dung bodyParser lay du lieu tu form vao body
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -18,14 +20,7 @@ app.listen(port, function() {
 });
 
 app.get('/', function(req, res){
-  var today = new Date();
-  var option = {
-    weekday: 'long',
-    day: 'numeric',
-    month: 'long'
-  };
-
-  var day = today.toLocaleDateString('en-US', option);
+  let day = date.getDate();
 
   res.render("list", {
     titles: day,
